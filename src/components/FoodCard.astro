@@ -1,0 +1,425 @@
+---
+interface Props {
+    titulo: string;
+    descripcion: string;
+    precio: string;
+    imagen: string;
+    detalles: string;
+}
+
+const { titulo, descripcion, precio, imagen, detalles } = Astro.props;
+---
+
+<div class="card-wrapper">
+    <div class="food-card">
+        <div class="img-container">
+            <img src={imagen} alt={titulo} />
+        </div>
+        <div class="info">
+            <h3 class="titulo">{titulo}</h3>
+            <p class="desc">{descripcion}</p>
+            <span class="precio">{precio}</span>
+        </div>
+    </div>
+
+    <dialog class="food-modal">
+        <div class="modal-content">
+            <button class="close-btn">&times;</button>
+            <div class="modal-split">
+                <div class="modal-image-col">
+                    <img src={imagen} alt={titulo} class="modal-img" />
+                </div>
+                <div class="modal-info-col">
+                    <h2 class="modal-title">{titulo}</h2>
+                    <span class="modal-precio">{precio}</span>
+                    <p class="modal-desc">{detalles}</p>
+
+                    <div class="compra-section">
+                        <h4 class="opciones-title">Opciones de pedido</h4>
+                        <div class="cantidad-selector">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" class="qty-input" value="1" min="1" />
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="btn-comprar">Agregar al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dialog>
+</div>
+
+<style>
+    .card-wrapper {
+        height: 100%;
+    }
+
+    .food-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .food-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 25px -5px rgb(180 217 255);
+        border-color: #003cff;
+    }
+
+    .img-container {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        background: #f1f5f9;
+    }
+
+    .img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .info {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .titulo {
+        color: #1e293b !important;
+        margin: 0 0 0.5rem 0 !important;
+        font-size: 1.5rem !important;
+        font-weight: 800 !important;
+        line-height: 1.2 !important;
+    }
+
+    .desc {
+        color: #64748b !important;
+        font-size: 0.95rem !important;
+        margin: 0 0 1.5rem 0 !important;
+        line-height: 1.5 !important;
+        flex-grow: 1;
+    }
+
+    .precio {
+        background: #0056b3;
+        color: white !important;
+        padding: 6px 14px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1rem;
+        width: fit-content;
+        box-shadow: 0 4px 10px rgba(0, 86, 179, 0.3);
+    }
+
+    .food-modal {
+        border: none;
+        border-radius: 24px;
+        padding: 0;
+        width: 90%;
+        max-width: 850px;
+        background: #ffffff;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+        overflow: hidden;
+    }
+
+    .food-modal[open] {
+        animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .food-modal.closing {
+        animation: modalFadeOut 0.2s ease forwards;
+    }
+
+    .food-modal::backdrop {
+        background: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(0px);
+    }
+
+    .food-modal[open]::backdrop {
+        animation: backdropFadeIn 0.3s ease forwards;
+    }
+
+    .food-modal.closing::backdrop {
+        animation: backdropFadeOut 0.2s ease forwards;
+    }
+
+    @keyframes modalFadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95) translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    @keyframes modalFadeOut {
+        from {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: scale(0.95) translateY(20px);
+        }
+    }
+
+    @keyframes backdropFadeIn {
+        from {
+            background: rgba(0, 0, 0, 0);
+            backdrop-filter: blur(0px);
+        }
+        to {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+        }
+    }
+
+    @keyframes backdropFadeOut {
+        from {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+        }
+        to {
+            background: rgba(0, 0, 0, 0);
+            backdrop-filter: blur(0px);
+        }
+    }
+
+    .modal-content {
+        position: relative;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: #ffffff;
+        color: #1e293b;
+        border: none;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 20;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.2s;
+    }
+
+    .close-btn:hover {
+        transform: scale(1.1);
+    }
+
+    .modal-split {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .modal-image-col {
+        width: 50%;
+    }
+
+    .modal-img {
+        width: 100%;
+        height: 100%;
+        min-height: 400px;
+        object-fit: cover;
+    }
+
+    .modal-info-col {
+        width: 50%;
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-title {
+        margin: 0 0 10px 0;
+        font-size: 2rem;
+        color: #1e293b;
+        font-weight: 800;
+        padding-right: 20px;
+    }
+
+    .modal-precio {
+        display: inline-block;
+        background: #0056b3;
+        color: white;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 10px rgba(0, 86, 179, 0.3);
+        width: fit-content;
+    }
+
+    .modal-desc {
+        color: #475569;
+        line-height: 1.6;
+        font-size: 1rem;
+        margin: 0 0 2rem 0;
+        flex-grow: 1;
+    }
+
+    .compra-section {
+        background: #f8fafc;
+        padding: 1.5rem;
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .opciones-title {
+        margin: 0 0 1rem 0;
+        color: #1e293b;
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+
+    .cantidad-selector {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .qty-btn {
+        background: #e2e8f0;
+        border: none;
+        border-radius: 8px;
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #334155;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    .qty-btn:hover {
+        background: #cbd5e1;
+    }
+
+    .qty-input {
+        width: 50px;
+        height: 36px;
+        text-align: center;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #1e293b;
+    }
+
+    .qty-input::-webkit-outer-spin-button,
+    .qty-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .btn-comprar {
+        width: 100%;
+        background: #003cff;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-comprar:hover {
+        background: #002ecc;
+    }
+
+    .btn-comprar:active {
+        transform: scale(0.98);
+    }
+
+    @media (max-width: 768px) {
+        .modal-split {
+            flex-direction: column;
+        }
+        .modal-image-col, .modal-info-col {
+            width: 100%;
+        }
+        .modal-img {
+            min-height: 250px;
+        }
+        .modal-info-col {
+            padding: 1.5rem;
+        }
+    }
+</style>
+
+<script>
+    const wrappers = document.querySelectorAll('.card-wrapper');
+
+    wrappers.forEach(wrapper => {
+        const card = wrapper.querySelector('.food-card') as HTMLElement;
+        const modal = wrapper.querySelector('.food-modal') as HTMLDialogElement;
+        const closeBtn = wrapper.querySelector('.close-btn') as HTMLButtonElement;
+        const minusBtn = wrapper.querySelector('.minus') as HTMLButtonElement;
+        const plusBtn = wrapper.querySelector('.plus') as HTMLButtonElement;
+        const qtyInput = wrapper.querySelector('.qty-input') as HTMLInputElement;
+
+        if (minusBtn && plusBtn && qtyInput) {
+            minusBtn.addEventListener('click', () => {
+                let val = parseInt(qtyInput.value);
+                if (val > 1) qtyInput.value = (val - 1).toString();
+            });
+            plusBtn.addEventListener('click', () => {
+                let val = parseInt(qtyInput.value);
+                qtyInput.value = (val + 1).toString();
+            });
+        }
+
+        if (card && modal && closeBtn) {
+            card.addEventListener('click', () => {
+                modal.showModal();
+            });
+
+            const closeAnimated = () => {
+                modal.classList.add('closing');
+                modal.addEventListener('animationend', function handler() {
+                    modal.classList.remove('closing');
+                    modal.close();
+                    modal.removeEventListener('animationend', handler);
+                });
+            };
+
+            closeBtn.addEventListener('click', closeAnimated);
+
+            modal.addEventListener('click', (e) => {
+                const dialogDimensions = modal.getBoundingClientRect();
+                if (
+                    e.clientX < dialogDimensions.left ||
+                    e.clientX > dialogDimensions.right ||
+                    e.clientY < dialogDimensions.top ||
+                    e.clientY > dialogDimensions.bottom
+                ) {
+                    closeAnimated();
+                }
+            });
+        }
+    });
+</script>

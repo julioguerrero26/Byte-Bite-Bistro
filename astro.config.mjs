@@ -1,4 +1,3 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
@@ -20,6 +19,8 @@ export default defineConfig({
 					href: 'https://github.com/julioguerrero26'
 				},
 			],
+			sidebar: [],
+			tableOfContents: false
 		}),
 	],
 });

@@ -1,7 +1,7 @@
 ---
 title: Topicos Avanzados De Programacion
 description: Me dan miedo las mujeres
-# template: splash
+template: splash
 hero:
   title: Topicos Avanzados De Programacion
   tagline: Me dan miedo las mujeres
@@ -10,53 +10,23 @@ hero:
     file: ../../assets/leon.svg
 ---
 
-import ParticleBackground from '../../components/ParticleBackground.astro';
 import Menu from '../../components/Menu.astro';
+import FoodCard from '../../components/FoodCard.astro';
 
-<ParticleBackground />
+<Menu>
+    <div class="cards-grid">
+        <FoodCard
+            titulo="Algoritmos al Ajillo"
+            descripcion="Una mezcla de búsqueda binaria con un toque de ajo y especias."
+            precio="$120.00"
+            imagen="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800&auto=format&fit=crop"
+        />
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; padding: 2rem 0;">
-
-    <Menu
-        titulo="Algoritmos al Ajillo"
-        descripcion="Una mezcla de búsqueda binaria con un toque de recursividad picante. Ideal para ingenieros con hambre de optimización."
-        precio="$85.00"
-        imagen="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=500"
-    />
-
-    <Menu
-        titulo="Sopa de Sockets"
-        descripcion="Conexiones TCP/IP frescas del día, servidas con headers personalizados y un ping de 1ms."
-        precio="$120.00"
-        imagen="https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=500"
-    />
-
-    <Menu
-        titulo="Tacos de Pointer"
-        descripcion="Tres piezas con dirección de memoria dinámica, cilantro al gusto y sin riesgo de Segmentation Fault."
-        precio="$60.00"
-        imagen="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=500"
-    />
-
-    <Menu
-        titulo="Algoritmos al Ajillo"
-        descripcion="Una mezcla de búsqueda binaria con un toque de recursividad picante. Ideal para ingenieros con hambre de optimización."
-        precio="$85.00"
-        imagen="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=500"
-    />
-
-    <Menu
-        titulo="Sopa de Sockets"
-        descripcion="Conexiones TCP/IP frescas del día, servidas con headers personalizados y un ping de 1ms."
-        precio="$120.00"
-        imagen="https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=500"
-    />
-
-    <Menu
-        titulo="Tacos de Pointer"
-        descripcion="Tres piezas con dirección de memoria dinámica, cilantro al gusto y sin riesgo de Segmentation Fault."
-        precio="$60.00"
-        imagen="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=500"
-    />
-
-</div>
+        <FoodCard
+            titulo="Estructuras en Salsa"
+            descripcion="Arboles binarios bañados en salsa verde tradicional."
+            precio="$95.00"
+            imagen="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop"
+        />
+    </div>
+</Menu>

@@ -9,6 +9,7 @@
     --brand-blue-deep: #0056b3;
     --light-bg: #F8FAFC; /* Un blanco azulado muy limpio */
     --light-card: #FFFFFF;
+    --sl-sidebar-width: 0px !important;
 
     /* --- SOBRESCRIBIENDO STARLIGHT PARA LIGHT MODE --- */
     --sl-color-bg: var(--light-bg) !important;
@@ -54,3 +55,29 @@ site-search {
 .right-group {
     gap: 1rem !important;
 }
+
+sidebar-panel {
+    display: none !important;
+}
+
+.main-frame {
+    margin-inline-start: 0 !important;
+}
+
+/* src/Styles/custom.css */
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
