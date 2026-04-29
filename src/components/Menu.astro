@@ -1,0 +1,89 @@
+---
+interface Props {
+    titulo: string;
+    descripcion: string;
+    precio: string;
+    imagen: string;
+}
+
+const { titulo, descripcion, precio, imagen } = Astro.props;
+---
+
+<style>
+    .food-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 100%; /* Esto hace que todas midan lo mismo */
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .food-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 25px -5px rgb(180 217 255);
+        border-color: #003cff;
+    }
+
+    .img-container {
+        width: 100%;
+        height: 220px; /* Altura fija para que no se desfase */
+        overflow: hidden;
+        background: #f1f5f9;
+    }
+
+    .img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Esto es clave: corta la imagen para que llene el hueco sin deformarse */
+    }
+
+    .info {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1; /* Empuja el contenido para llenar el espacio */
+    }
+
+    .titulo {
+        color: #1e293b !important;
+        margin: 0 0 0.5rem 0 !important;
+        font-size: 1.5rem !important;
+        font-weight: 800 !important;
+        line-height: 1.2 !important;
+    }
+
+    .desc {
+        color: #64748b !important;
+        font-size: 0.95rem !important;
+        margin: 0 0 1.5rem 0 !important;
+        line-height: 1.5 !important;
+        flex-grow: 1; /* Hace que el texto ocupe el espacio y el precio quede abajo */
+    }
+
+    .precio {
+        background: #0056b3;
+        color: white !important;
+        padding: 6px 14px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1rem;
+        width: fit-content;
+        box-shadow: 0 4px 10px rgba(0, 86, 179, 0.3);
+    }
+</style>
+
+<div class="food-card">
+    <div class="img-container">
+        <img src={imagen} alt={titulo} />
+    </div>
+    <div class="info">
+        <h3 class="titulo">{titulo}</h3>
+        <p class="desc">{descripcion}</p>
+        <span class="precio">{precio}</span>
+    </div>
+</div>
+

@@ -1,40 +1,62 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: Topicos Avanzados De Programacion
+description: Me dan miedo las mujeres
+# template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  title: Topicos Avanzados De Programacion
+  tagline: Me dan miedo las mujeres
   image:
-    file: ../../assets/houston.webp
-  actions:
-    - text: Example Guide
-      link: /guides/example/
-      icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
-      variant: minimal
+    alt: Houston el astronauta
+    file: ../../assets/leon.svg
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import ParticleBackground from '../../components/ParticleBackground.astro';
+import Menu from '../../components/Menu.astro';
 
-## Next steps
+<ParticleBackground />
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
-</CardGrid>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; padding: 2rem 0;">
+
+    <Menu
+        titulo="Algoritmos al Ajillo"
+        descripcion="Una mezcla de búsqueda binaria con un toque de recursividad picante. Ideal para ingenieros con hambre de optimización."
+        precio="$85.00"
+        imagen="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=500"
+    />
+
+    <Menu
+        titulo="Sopa de Sockets"
+        descripcion="Conexiones TCP/IP frescas del día, servidas con headers personalizados y un ping de 1ms."
+        precio="$120.00"
+        imagen="https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=500"
+    />
+
+    <Menu
+        titulo="Tacos de Pointer"
+        descripcion="Tres piezas con dirección de memoria dinámica, cilantro al gusto y sin riesgo de Segmentation Fault."
+        precio="$60.00"
+        imagen="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=500"
+    />
+
+    <Menu
+        titulo="Algoritmos al Ajillo"
+        descripcion="Una mezcla de búsqueda binaria con un toque de recursividad picante. Ideal para ingenieros con hambre de optimización."
+        precio="$85.00"
+        imagen="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=500"
+    />
+
+    <Menu
+        titulo="Sopa de Sockets"
+        descripcion="Conexiones TCP/IP frescas del día, servidas con headers personalizados y un ping de 1ms."
+        precio="$120.00"
+        imagen="https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=500"
+    />
+
+    <Menu
+        titulo="Tacos de Pointer"
+        descripcion="Tres piezas con dirección de memoria dinámica, cilantro al gusto y sin riesgo de Segmentation Fault."
+        precio="$60.00"
+        imagen="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=500"
+    />
+
+</div>

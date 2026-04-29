@@ -1,0 +1,99 @@
+---
+// src/components/ParticleBackground.astro
+---
+
+<div id="tsparticles"></div>
+
+<script>
+    import { tsParticles } from "@tsparticles/engine";
+    import { loadSlim } from "@tsparticles/slim"; // Usamos la versión slim para mejor rendimiento
+
+    // Función autoejecutable para la inicialización
+    (async () => {
+        await loadSlim(tsParticles); // Cargar los motores necesarios
+
+        await tsParticles.load({
+            id: "tsparticles",
+            options: {
+                // AQUÍ VA LA CONFIGURACIÓN JSON PARA EL EFECTO DE GEMINI
+                background: {
+                    color: "#ffffff", // Fondo negro total
+                },
+                fpsLimit: 60, // Limitar FPS para no calentar la compu
+                interactivity: {
+                    events: {
+                        onClick: {
+                            enable: false, // Desactivar clics
+                        },
+                        onHover: {
+                            enable: true, // Activar hover para que sigan el cursor
+                            mode: "grab", // Modo "atracción/agarre" sutil
+                        },
+                        resize: true, // Responsivo
+                    },
+                    modes: {
+                        grab: {
+                            distance: 200, // Distancia de atracción
+                            links: {
+                                opacity: 0.5, // Opacidad de las líneas que se crean
+                            },
+                        },
+                    },
+                },
+                particles: {
+                    color: {
+                        value: "#002150", // Un azul eléctrico sutil como el de Google
+                    },
+                    links: {
+                        color: "#0069ff", // Color de las líneas que se crean
+                        distance: 150, // Distancia máxima para crear líneas
+                        enable: true, // Activar líneas entre partículas
+                        opacity: 0.2, // Opacidad sutil de las líneas
+                        width: 1, // Grosor de las líneas
+                    },
+                    collisions: {
+                        enable: true, // Que choquen entre ellas
+                    },
+                    move: {
+                        direction: "none",
+                        enable: true, // Que se muevan solas
+                        outModes: {
+                            default: "bounce", // Que reboten en las orillas
+                        },
+                        random: true, // Movimiento aleatorio
+                        speed: 1, // Velocidad baja
+                        straight: false,
+                    },
+                    number: {
+                        density: {
+                            enable: true,
+                            area: 800, // Densidad por área
+                        },
+                        value: 120, // Número de partículas
+                    },
+                    opacity: {
+                        value: 0.3, // Opacidad sutil de las partículas
+                    },
+                    shape: {
+                        type: "circle", // Forma circular
+                    },
+                    size: {
+                        value: { min: 1, max: 3 }, // Tamaño aleatorio
+                    },
+                },
+                detectRetina: true, // Mejor definición en pantallas Retina
+            },
+        });
+    })();
+</script>
+
+<style>
+    #tsparticles {
+        position: fixed; /* Fijo para que cubra todo */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* Detrás de todo el contenido */
+    }
+</style>
