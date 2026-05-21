@@ -94,7 +94,7 @@ const {
     }
 
     .food-card {
-        background: var(--bg-card);
+        background: rgba(15, 23, 42, 0.92);
         border: 1px solid var(--border-color);
         border-radius: 20px;
         overflow: hidden;
@@ -104,7 +104,7 @@ const {
         cursor: pointer;
         transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         position: relative;
-        backdrop-filter: blur(8px);
+        will-change: transform, opacity;
     }
 
     .food-card::before {
@@ -163,8 +163,7 @@ const {
         position: absolute;
         top: 15px;
         left: 15px;
-        background: rgba(15, 23, 42, 0.75);
-        backdrop-filter: blur(4px);
+        background: rgba(15, 23, 42, 0.92);
         color: var(--brand-cyan);
         padding: 4px 10px;
         border-radius: 8px;
