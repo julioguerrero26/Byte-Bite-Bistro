@@ -10,7 +10,11 @@ import leonImg from '../assets/bullterrier.png';
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Topicos Avanzados De Programacion</title>
+    <title>Byte & Bite Bistro | Tópicos Avanzados de Programación</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 <ParticleBackground />
@@ -18,10 +22,18 @@ import leonImg from '../assets/bullterrier.png';
 <Menu>
     <div class="hero-section">
         <div class="hero-text">
-            <h1>Topicos Avanzados De Programacion</h1>
-            <p>Me dan miedo las mujeres</p>
+            <span class="hero-badge">&lt;terminal_bistro&gt;</span>
+            <h1>Byte & Bite Bistro</h1>
+            <p>Compilando el sabor en tiempo de ejecución. El primer menú gourmet optimizado para desarrolladores de alto rendimiento.</p>
+            <div class="hero-meta">
+                <span class="meta-tag">⚡ Latencia O(1)</span>
+                <span class="meta-tag">🛡️ Sandbox Safe</span>
+            </div>
         </div>
-        <img src={leonImg.src} alt="Houston el astronauta" class="hero-image" />
+        <div class="hero-image-container">
+            <img src={leonImg.src} alt="Bull Terrier Programador" class="hero-image" />
+            <div class="hero-image-glow"></div>
+        </div>
     </div>
 
     <div class="cards-grid">
@@ -31,6 +43,8 @@ import leonImg from '../assets/bullterrier.png';
                 precio="$120.00"
                 imagen="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800&auto=format&fit=crop"
                 detalles="Este platillo está inspirado en la eficiencia de la búsqueda binaria. Primero cortamos los ingredientes a la mitad, luego otra vez a la mitad, hasta llegar a la porción perfecta. Viene acompañado de una salsa de ajo que te dejará un aliento O(1)."
+                categoria="algoritmos"
+                tags={["O(log N)", "Búsqueda", "Binary Search"]}
         />
 
         <FoodCard
@@ -39,6 +53,8 @@ import leonImg from '../assets/bullterrier.png';
                 precio="$95.00"
                 imagen="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop"
                 detalles="Nuestros árboles binarios son cultivados orgánicamente. Cada nodo contiene un sabor distinto y están perfectamente balanceados (como un árbol AVL) para que tu digestión no sufra. La salsa verde está picosita."
+                categoria="estructuras"
+                tags={["AVL Tree", "O(log N)", "Self-Balancing"]}
         />
 
         <FoodCard
@@ -47,6 +63,8 @@ import leonImg from '../assets/bullterrier.png';
                 precio="$180.00"
                 imagen="https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 detalles="Este platillo ejecuta un INNER JOIN entre los mejores mariscos de la costa y una base de arroz blanco. Está indexado para que el sabor llegue a tu paladar en milisegundos. ¡Cuidado con las inyecciones de picante!"
+                categoria="redes"
+                tags={["SQL", "INNER JOIN", "Optimized INDEX"]}
         />
 
         <FoodCard
@@ -55,6 +73,8 @@ import leonImg from '../assets/bullterrier.png';
                 precio="$110.00"
                 imagen="https://images.unsplash.com/photo-1473093226795-af9932fe5856?q=80&w=800&auto=format&fit=crop"
                 detalles="Nuestra pasta actúa como un proxy inverso: filtra el hambre y solo deja pasar la satisfacción. Viene con una capa de seguridad de albóndigas encriptadas en salsa pomodoro. Nadie podrá hackear tu apetito."
+                categoria="redes"
+                tags={["Security", "Proxy", "WAF Rules"]}
         />
 
         <FoodCard
@@ -63,6 +83,8 @@ import leonImg from '../assets/bullterrier.png';
                 precio="$85.00"
                 imagen="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop"
                 detalles="Estos tacos no usan librerías externas. Son de pastor puro programado en registro por registro. Cada bocado mueve 8 bits de sabor directamente a tu memoria central. Incluye interrupciones de cebolla y cilantro."
+                categoria="sistemas"
+                tags={["Assembly x86", "Low-Level", "Bare Metal"]}
         />
 
         <FoodCard
@@ -71,6 +93,8 @@ import leonImg from '../assets/bullterrier.png';
                 precio="$145.00"
                 imagen="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=800&auto=format&fit=crop"
                 detalles="Una hamburguesa escalable que se adapta a tu hambre. Cuenta con alta disponibilidad de tocino y un balanceador de carga de queso cheddar. Si el hambre aumenta, ¡añadimos otra capa automáticamente!"
+                categoria="redes"
+                tags={["Load Balancer", "High Availability", "AWS"]}
         />
 
         <FoodCard
@@ -79,6 +103,8 @@ import leonImg from '../assets/bullterrier.png';
                 precio="$135.00"
                 imagen="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop"
                 detalles="Este platillo se sirve en un tazón que parece no tener fin. La experiencia es recursiva: cada bocado te lleva a otro bocado más profundo hasta que alcanzas el caso base: el fondo del plato. Si no tienes cuidado, podrías sufrir un Stack Overflow de sabor."
+                categoria="algoritmos"
+                tags={["Recursion", "Stack Memory", "Base Case"]}
         />
 
         <FoodCard
@@ -87,6 +113,8 @@ import leonImg from '../assets/bullterrier.png';
                 precio="$80.00"
                 imagen="https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=800&auto=format&fit=crop"
                 detalles="Una sopa optimizada para cualquier hardware digestivo. Es modular, así que puedes añadirle 'parches' de chile o limón en tiempo de ejecución sin necesidad de reiniciar tu comida. Es de código abierto, así que si te gusta, te pasamos la receta (el source code)."
+                categoria="sistemas"
+                tags={["OS Kernel", "Monolithic", "Open Source"]}
         />
 
         <FoodCard
@@ -95,6 +123,8 @@ import leonImg from '../assets/bullterrier.png';
                 precio="$165.00"
                 imagen="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=800&auto=format&fit=crop"
                 detalles="Olvídate del procesamiento secuencial. Estos rollos están diseñados para ser consumidos en hilos separados. Cada pieza llega a tus papilas gustativas mediante una arquitectura de alta disponibilidad, garantizando que el sabor no tenga cuellos de botella."
+                categoria="algoritmos"
+                tags={["Concurrency", "Multi-threading", "Parallel"]}
         />
     </div>
 </Menu>
@@ -107,60 +137,151 @@ import leonImg from '../assets/bullterrier.png';
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        gap: 4rem;
-        padding: 4rem 2rem;
-        max-width: 1000px;
-        margin: 0 auto;
+        gap: 3rem;
+        padding: 3rem 1.5rem;
+        max-width: 1100px;
+        margin: 0 auto 2rem auto;
         position: relative;
         z-index: 10;
     }
 
     .hero-text {
-        flex: 1;
+        flex: 1.2;
         text-align: left;
     }
 
+    .hero-badge {
+        font-family: 'Fira Code', monospace;
+        font-size: 0.85rem;
+        color: var(--brand-cyan);
+        background: rgba(6, 182, 212, 0.1);
+        border: 1px solid rgba(6, 182, 212, 0.25);
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
     .hero-section h1 {
-        font-size: 3.5rem;
+        font-size: 3.8rem;
         font-weight: 800;
-        color: #111827;
-        margin-bottom: 0.5rem;
-        line-height: 1.2;
+        background: linear-gradient(135deg, #a5b4fc 10%, #06b6d4 50%, #ec4899 90%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+        letter-spacing: -1px;
     }
 
     .hero-section p {
-        font-size: 1.5rem;
-        color: #4b5563;
-        margin: 0;
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        margin: 0 0 1.5rem 0;
+        line-height: 1.6;
+        max-width: 540px;
+    }
+
+    .hero-meta {
+        display: flex;
+        gap: 12px;
+    }
+
+    .meta-tag {
+        font-size: 0.8rem;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        color: var(--text-muted);
+        padding: 4px 12px;
+        border-radius: 20px;
+    }
+
+    .hero-image-container {
+        flex: 0.8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
     }
 
     .hero-image {
-        width: 450px;
-        height: 450px;
-        flex-shrink: 0;
+        width: 320px;
+        height: 320px;
         object-fit: contain;
+        z-index: 2;
+        filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5));
+        animation: float 5s ease-in-out infinite;
+    }
+
+    .hero-image-glow {
+        position: absolute;
+        width: 260px;
+        height: 260px;
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 70%);
+        border-radius: 50%;
+        filter: blur(10px);
+        z-index: 1;
+        animation: pulse 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0) rotate(0deg);
+        }
+        50% {
+            transform: translateY(-12px) rotate(1deg);
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(0.9);
+            opacity: 0.7;
+        }
+        100% {
+            transform: scale(1.1);
+            opacity: 1.0;
+        }
     }
 
     .cards-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
         gap: 2rem;
-        padding: 2rem;
+        padding: 0 1.5rem 4rem 1.5rem;
         max-width: 1200px;
         margin: 0 auto;
         position: relative;
         z-index: 10;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 850px) {
         .hero-section {
             flex-direction: column-reverse;
             text-align: center;
             gap: 2rem;
+            padding: 2rem 1rem;
         }
 
         .hero-text {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.8rem;
+        }
+
+        .hero-section p {
+            font-size: 1rem;
+        }
+
+        .hero-image {
+            width: 240px;
+            height: 240px;
         }
     }
 </style>
